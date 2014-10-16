@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			section {
+				display: none;
+			}
+
+			section.current {
+				display: block;
+			}
+
+			body {
+				background: white;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			ul {
+				list-style-type: none;
+			}
+
+			input {
+				margin-right: 1em;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				$('.submit').click(function() {
+					if(typeof $('.current input[type="radio"].correct').attr('checked') !== 'undefined')
+					{
+						alert('Correct!  Click to continue to the next question.');
+						nextQuestion();
+					}
+					else
+					{
+						alert('Incorrect, please try again.');
+					}
+				});
+
+				function nextQuestion() {
+					var $next = $('.current').next();
+					console.log($next);
+					if($next.length > 0)
+					{
+						$('.current').removeClass('current');
+						$next.addClass('current');
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<section class="current" id="q1">
+			<h1>Plant cell quiz</h1>
+			<h2>Question 1:</h2>
+			<p>Which part of the plant cell is green and captures light energy for use in photosynthesis?</p>
+			<ul>
+				<li><input name="q1" id="q1a1" type="radio"><label for="q1a1">cell wall</label></li>
+				<li><input class="correct" name="q1" id="q1a2" type="radio"><label for="q1a2">chloroplast</label></li>
+				<li><input name="q1" id="q1a3" type="radio"><label for="q1a3">cytoplasm</label></li>
+				<li><input name="q1" id="q1a4" type="radio"><label for="q1a4">ribosome</label></li>
+			</ul>
+			<input class="submit" type="submit" value="Submit answer input" />
+		</section>
+		<section id="q2">
+			<h1>Plant cell quiz</h1>
+			<h2>Question 2:</h2>
+			<p>Which part of the plant cell is a large organelle containing water and enzymes?</p>
+			<ul>
+				<li><input name="q2" id="q2a1" type="radio"><label for="q2a1">ribosome</label></li>
+				<li><input name="q2" id="q2a2" type="radio"><label for="q2a2">nucleus</label></li>
+				<li><input name="q2" id="q2a3" type="radio"><label for="q2a3">chloroplast</label></li>
+				<li><input class="correct" name="q2" id="q2a4" type="radio"><label for="q2a4">vacuole</label></li>
+			</ul>
+			<input class="submit" type="submit" value="Submit answer input" />
+		</section>
+		<section id="q3">
+			<h1>Plant cell quiz</h1>
+			<h2>Question 3:</h2>
+			<p>Which part of the plant cell is spherical and contains chromosomes?</p>
+			<ul>
+				<li><input class="correct" name="q3" id="q3a1" type="radio"><label for="q3a1">nucleus</label></li>
+				<li><input name="q3" id="q3a2" type="radio"><label for="q3a2">cytosol</label></li>
+				<li><input name="q3" id="q3a3" type="radio"><label for="q3a3">rough endoplasmic reticulum</label></li>
+				<li><input name="q3" id="q3a4" type="radio"><label for="q3a4">smooth endoplasmic reticulum</label></li>
+			</ul>
+			<input class="submit" type="submit" value="Submit answer input" />
+		</section>
+		<section>
+			<h1>And so on and so on...</h1>
+		</section>
+	</body>
+</html>
